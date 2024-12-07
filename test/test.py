@@ -5,36 +5,30 @@ import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles
 
-
 @cocotb.test()
-async def test_project(dut):
-    dut._log.info("Start")
+async def test_monobit(dut):
+    """
+    This testbench uses cocotb to replicate the logic from the provided C++ code.
+    It will drive a sequence of bits into the DUT and after N_TESTS iterations,
+    it will display the `valid` and `is_random` outputs.
+    """
+    N_TESTS = 65536
 
-    # Set the clock period to 10 us (100 KHz)
-    clock = Clock(dut.clk, 10, units="us")
-    cocotb.start_soon(clock.start())
+    # Reset the DUT
+    dut.rst.value = 1
+    await RisingEdge(dut.clk)
+    dut.rst.value = 0
 
-    dut._log.info("Test project behavior")
-    a_vals = [i for i in range(16)] #makes an array [0...15]
-    b_vals = [i for i in range(16)] #makes an array [0...15]
-    
-    for i in range(len(a_vals)):
-        for j in range(len(b_vals)):
-            # Set the input values you want to test
-            dut.a.value = a_vals[i]
-            dut.b.value = b_vals[j]
-            
-            # Wait for one clock cycle to see the output values
-            await ClockCycles(dut.clk, 10)
-          
-            # The following assersion is just an example of how to check the output values.
-            # Change it to match the actual expected output of your module:
-            dut._log.info(f"value of outputs are: {dut.sum.value} and {dut.carry_out.value}.")
-            assert int(dut.sum.value) == ((a_vals[i] + b_vals[j])%16) and int(dut.carry_out.value) == ((a_vals[i] + b_vals[j]) >= 16)  
-        
-    
-   
+    # Run N_TESTS iterations, similar to the C++ code
+    for i in range(N_TESTS):
+        # Match the logic: rnd = i > 3 ? i%2 : 0
+        rnd = (i % 2) if i > 3 else 0
 
-    # Keep testing the module by changing the input values, waiting for
-    # one or more clock cycles, and asserting the expected output values.
-    
+        # Apply input to epsilon_rsc_dat
+        dut.epsilon_rsc_dat.value = rnd
+
+        # Advance one clock cycle
+        await RisingEdge(dut.clk)
+
+    # After N_TESTS, print out the final values of valid and is_random
+    cocotb.log.info(f"valid: {int(dut.valid_rsc_dat.value)} \t random: {int(dut.is_random_rsc_dat.value)}")
