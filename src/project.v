@@ -197,14 +197,3 @@ monobit_core monobit_core_inst (
   .epsilon_triosy_lz(epsilon_triosy_lz)
 );
 endmodule
-
-tt_um_monobit tt_um_monobit_inst (
-  .clk(clk),
-  .rst_n(rst),
-  .ui_in(epsilon_rsc_dat)
-  .uo_out(is_random_rsc_dat),
-  .uio_in(is_random_triosy_lz),
-  .uio_out(valid_rsc_dat),
-  .uio_oe(valid_triosy_lz)
-
-); 
