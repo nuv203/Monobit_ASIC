@@ -32,26 +32,26 @@ module tt_um_monobit (
 
 
     
-    monobit_core monobit_core_inst (
-      .clk(clk),
-        .rst(rst_n),
-        .is_random_rsc_dat(uo_out[0]),
-      .is_random_triosy_lz(is_random_triosy_lz),
-      .valid_rsc_dat(valid_rsc_dat),
-      .valid_triosy_lz(valid_triosy_lz),
-        .epsilon_rsc_dat(ui_in[0]),
-        .epsilon_triosy_lz(uio_out[0])
-    );
-
-    
-    // monobit monobit_inst (
-    //     .clk(clk),
-    //     .rst(rst),
+    // monobit_core monobit_core_inst (
+    //   .clk(clk),
+    //     .rst(rst_n),
     //     .is_random_rsc_dat(uo_out[0]),
-    //     .is_random_triosy_lz(is_random_triosy_lz),
-    //     .valid_rsc_dat(valid_rsc_dat),
-    //     .valid_triosy_lz(valid_triosy_lz),
+    //   .is_random_triosy_lz(is_random_triosy_lz),
+    //   .valid_rsc_dat(valid_rsc_dat),
+    //   .valid_triosy_lz(valid_triosy_lz),
     //     .epsilon_rsc_dat(ui_in[0]),
     //     .epsilon_triosy_lz(uio_out[0])
     // );
+
+    
+    monobit monobit_inst (
+        .clk(clk),
+        .rst(rst),
+        .is_random_rsc_dat(uo_out[0]),
+        .is_random_triosy_lz(is_random_triosy_lz),
+        .valid_rsc_dat(valid_rsc_dat),
+        .valid_triosy_lz(valid_triosy_lz),
+        .epsilon_rsc_dat(ui_in[0]),
+        .epsilon_triosy_lz(uio_out[0])
+    );
 endmodule
