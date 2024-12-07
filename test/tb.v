@@ -1,4 +1,3 @@
-`default_nettype none
 `timescale 1ns / 1ps
 
 /* This testbench just instantiates the module and makes some convenient wires
@@ -17,11 +16,9 @@ module tb ();
   reg clk;
   reg rst_n;
   reg ena;
-  reg [3:0] a,b;
+   reg [7:0] ui_in;
+   reg [7:0] uo_out;
   reg [7:0] uio_in;
-  wire [3:0] sum;
-  wire carry_out;
-  wire [2:0] uo_dum;
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
 `ifdef GL_TEST
