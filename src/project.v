@@ -43,7 +43,6 @@ module tt_um_monobit (
   assign uo_out[4] = valid_triosy_lz;
   assign uo_out[5] = epsilon_triosy_lz;
 
-endmodule
 
 // ----------------------------------------------------------------------
 //  HLS HDL:        Verilog Netlister
@@ -541,3 +540,6 @@ module monobit (
     );
     
 endmodule
+
+endmodule
+
