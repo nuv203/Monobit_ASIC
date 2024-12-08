@@ -353,8 +353,7 @@ endmodule
 // ------------------------------------------------------------------
 //  Design Unit:    monobit_core
 // ------------------------------------------------------------------
-
-
+/*
 module monobit_core (
   clk, rst, is_random_rsc_dat, is_random_triosy_lz, valid_rsc_dat, valid_triosy_lz,
       epsilon_rsc_dat, epsilon_triosy_lz
@@ -503,7 +502,7 @@ module monobit_core (
   endfunction
 
 endmodule
-
+*/
 // ------------------------------------------------------------------
 //  Design Unit:    monobit
 // ------------------------------------------------------------------
@@ -523,7 +522,7 @@ module monobit (
   output epsilon_triosy_lz;
 
 
-
+  
   // Interconnect Declarations for Component Instantiations 
   monobit_core monobit_core_inst (
       .clk(clk),
@@ -535,4 +534,5 @@ module monobit (
       .epsilon_rsc_dat(epsilon_rsc_dat),
       .epsilon_triosy_lz(epsilon_triosy_lz)
     );
+    
 endmodule
