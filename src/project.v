@@ -23,6 +23,23 @@ module tt_um_monobit (
     input  wire       rst_n
 );
 
+    monobit monobit_inst (
+      .clk(clk),
+      .rst_n(rst_n),
+      .is_random_rsc_dat(uo_out[0]),
+      .is_random_triosy_lz(),
+      .valid_rsc_dat(uo_out[1]),
+      .valid_triosy_lz(),
+      .epsilon_rsc_dat(ui_in[0]),
+      .epsilon_triosy_lz()
+    );
+
+  assign uio_out[7:2] = 0;
+  assign uio_oe[7:2]  = 0;
+  assign uio_oe[1:0]  = 2'b11;
+
+endmodule
+
 // ----------------------------------------------------------------------
 //  HLS HDL:        Verilog Netlister
 //  HLS Version:    2023.1_2/1049935 Production Release
