@@ -39,5 +39,5 @@ pinout:
   uo[6]: ""
   uo[7]: ""
 
-  # Do not change!
-  yaml_version: 6
+# Do not change!
+yaml_version: 6
