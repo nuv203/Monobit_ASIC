@@ -207,7 +207,7 @@ endmodule
 //  Design Unit:    monobit
 // ------------------------------------------------------------------
 
-
+/*
 module monobit (
   clk, rst, is_random_rsc_dat, is_random_triosy_lz, valid_rsc_dat, valid_triosy_lz,
       epsilon_rsc_dat, epsilon_triosy_lz
@@ -235,7 +235,7 @@ module monobit (
       .epsilon_triosy_lz(epsilon_triosy_lz)
     );
 endmodule
-
+*/
 
 
 //------> /eda/mentor/Siemens_EDA/Catapult_Synthesis_2023.1_2/Mgc_home/pkgs/siflibs/ccs_out_v1.v 
