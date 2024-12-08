@@ -39,9 +39,6 @@ module tt_um_monobit (
 
 
 module monobit_core (
-  clk, rst, is_random_rsc_dat, is_random_triosy_lz, valid_rsc_dat, valid_triosy_lz,
-      epsilon_rsc_dat, epsilon_triosy_lz
-);
   input clk;
   input rst;
   output is_random_rsc_dat;
@@ -50,6 +47,8 @@ module monobit_core (
   output valid_triosy_lz;
   input epsilon_rsc_dat;
   output epsilon_triosy_lz;
+);
+  
 
 
   // Interconnect Declarations
