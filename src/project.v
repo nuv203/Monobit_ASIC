@@ -25,13 +25,13 @@ module tt_um_monobit (
 
     monobit monobit_inst (
       .clk(clk),
-      .rst_n(rst_n),
+      .rst(rst_n),
       .is_random_rsc_dat(uo_out[0]),
-      .is_random_triosy_lz(),
+      .is_random_triosy_lz(uio_out[0]),
       .valid_rsc_dat(uo_out[1]),
-      .valid_triosy_lz(),
+      .valid_triosy_lz(uio_out[1]),
       .epsilon_rsc_dat(ui_in[0]),
-      .epsilon_triosy_lz()
+      .epsilon_triosy_lz(uio_out[2])
     );
 
   assign uio_out[7:2] = 0;
