@@ -56,14 +56,14 @@ endmodule
 
 
 module monobit_core (
-  input clk;
-  input rst;
-  output is_random_rsc_dat;
-  output is_random_triosy_lz;
-  output valid_rsc_dat;
-  output valid_triosy_lz;
-  input epsilon_rsc_dat;
-  output epsilon_triosy_lz;
+  input clk,
+  input rst,
+  output is_random_rsc_dat,
+  output is_random_triosy_lz,
+  output valid_rsc_dat,
+  output valid_triosy_lz,
+  input epsilon_rsc_dat,
+  output epsilon_triosy_lz
 );
   
 
