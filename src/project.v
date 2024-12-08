@@ -91,7 +91,8 @@ module monobit_core (
   assign nl_sum_sva_2 = sum_sva + conv_s2s_2_8({(~ epsilon_rsci_idat) , 1'b1});
   assign sum_sva_2 = nl_sum_sva_2[7:0];
   assign unequal_tmp_1 = ~((bit_count_sva==7'b1111111));
-  always_ff @(posedge clk) begin
+  always_ff @(posedge clk or negedge rst) 
+  begin
     if ( rst ) begin
       reg_epsilon_triosy_obj_ld_cse <= 1'b0;
       valid_rsci_idat <= 1'b0;
@@ -272,7 +273,7 @@ module ccs_in_v1 (idat, dat);
   parameter integer rscid = 1;
   parameter integer width = 8;
 
-  output [width-1:0] idat;
+  output reg [width-1:0] idat;
   input  [width-1:0] dat;
 
   wire   [width-1:0] idat;
