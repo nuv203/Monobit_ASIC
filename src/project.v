@@ -116,7 +116,7 @@ module monobit_core (
   assign nl_sum_sva_2 = sum_sva + conv_s2s_2_8({(~ epsilon_rsci_idat) , 1'b1});
   assign sum_sva_2 = nl_sum_sva_2[7:0];
   assign unequal_tmp_1 = ~((bit_count_sva==7'b1111111));
-  always @(posedge clk) begin
+  always_ff @(posedge clk) begin
     if ( rst ) begin
       reg_epsilon_triosy_obj_ld_cse <= 1'b0;
       valid_rsci_idat <= 1'b0;
