@@ -537,11 +537,6 @@ module tt_um_monobit (
   assign uio_out[7:2] = 0;
   assign uio_oe[7:2]  = 0;
   assign uio_oe[1:0]  = 2'b11;
-  assign uo_out[0] = is_random_rsc_dat;
-  assign uo_out[3] = is_random_triosy_lz;
-  assign uo_out[1] = valid_rsc_dat;
-  assign uo_out[4] = valid_triosy_lz;
-  assign uo_out[5] = epsilon_triosy_lz;
-    
+ 
 endmodule
 
