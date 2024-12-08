@@ -11,7 +11,6 @@
 // ------------------------------------------------------------------
 //  Design Unit:    monobit_core
 // ------------------------------------------------------------------
-`define default_netname none
 
 module tt_um_monobit (
     input  wire [7:0] ui_in,
