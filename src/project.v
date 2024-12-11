@@ -82,7 +82,7 @@ module monobit_core (
   //Always Block:
   always_ff @(posedge clk or negedge rst) 
   begin
-    if ( rst ) begin
+    if ( ~rst ) begin
       reg_epsilon_triosy_obj_ld_cse <= 1'b0;
       valid_rsci_idat <= 1'b0;
       is_random_rsci_idat <= 1'b0;
@@ -514,7 +514,7 @@ module tt_um_monobit (
 
     monobit monobit_inst (
       .clk(clk),
-      .rst(rst_n),
+      .rst(~rst_n),
       .is_random_rsc_dat(uo_out[0]),
       .is_random_triosy_lz(uo_out[3]),
       .valid_rsc_dat(uo_out[1]),
